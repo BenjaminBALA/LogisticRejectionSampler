@@ -1,0 +1,14 @@
+#This is a sample from a logistic regression by sampling a uniform and inverting the logistic density
+
+a <- 10000
+x <- runif(a, 0, 1)
+
+logisticsample <- log(x/(1-x)) #Negative log of the solution vector
+hist(logisticsample, freq=FALSE) #histogram of the logistic sample
+x.vals <- seq(-10, 10, length.out=a)
+lines(x.vals, dlogis(x.vals), col = "blue")
+
+#This is the probability that the function lies between 2 and 3
+y <- logisticsample[logisticsample > 2 & logisticsample <3]
+length(y)/logisticsample #Probability that the sample is between 2 and 3
+# This is the probability of being between 2 and 3 for the logistic sample
